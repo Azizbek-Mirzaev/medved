@@ -132,6 +132,6 @@
     {{-- </nav> --}}
     {{-- <?php echo $slot?> одно и тоже --}}
     {{-- {{ $slot }} --}}
-
+        @stack('script')
 </body>
 </html>
