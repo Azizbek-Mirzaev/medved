@@ -15,6 +15,7 @@
   <body class="h-full">
   ```
 -->
+
 <div class="min-h-full">
     <nav class="bg-gray-800">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -26,11 +27,14 @@
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+
                 <a href="/" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Главная</a>
-                <a href="/about" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">О Нас</a>
+
+                <a href="{{ route('frontend.about.show')}}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">О Нас</a>
                 <a href="{{ route('frontend.contacts.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Контакты</a>
                 <a href="{{ route('frontend.index') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Навигации</a>
                 <a href="{{ route('showLoginForm') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Вход</a>
+
             </div>
             </div>
           </div>
@@ -78,11 +82,13 @@
       <div class="md:hidden" id="mobile-menu">
         <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+
           <a href="/" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Главная</a>
-          <a href="/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">О Нас</a>
+          <a href="{{ route('frontend.about.show') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">О Нас</a>
           <a href="{{ route('frontend.contacts.index') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Контакты</a>
           <a href="{{ route('frontend.index') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Новости</a>
           <a href="{{ route('showLoginForm') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Вход</a>
+
         </div>
         <div class="border-t border-gray-700 pt-4 pb-3">
           <div class="flex items-center px-5">

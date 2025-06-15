@@ -1,8 +1,8 @@
 <x-layout>
     <x-slot:heading>
-        Show page
+        {{ $article->category->title }}
     </x-slot:heading>
-    <h1>Hello from the Show page.</h1> <br>
+    <h1>{{ $article->category->title }}</h1> <br>
 
     <div >
         <img src="/storage/{{ $article->image }}" class="w-100" alt="">

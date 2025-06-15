@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Contact;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 class FrontendMainController extends Controller
@@ -53,5 +54,20 @@ class FrontendMainController extends Controller
             'contacts'=>$contacts
         ]);
     }
+    public function index2()
+    {   $about = Page::all();
 
+        return view('frontend.about.index',[
+            'about'=>$about
+        ]);
+    }
+        public function show2($id=4)
+    {   $about = Page::findOrFail($id=4);
+           if (! $about) {
+            abort(404);
+        }
+        return view('frontend.about.show',[
+            'about'=>$about
+        ]);
+    }
 }

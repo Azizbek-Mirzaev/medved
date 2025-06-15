@@ -6,7 +6,7 @@
     <h1>Hello from the Contacts page.</h1> <br>
 
 {{-- <div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100"> --}}
-<table class="table table-striped text-center" class="w-100" alt="">
+<table class="table table-striped text-center" class="w-400" alt="">
  <table class="table">
     <thead>
         <tr>
