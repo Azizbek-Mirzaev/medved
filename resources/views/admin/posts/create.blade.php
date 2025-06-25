@@ -9,7 +9,7 @@
     @endforeach
     @endif
 
-    <form action="{{ route('admin.about.store') }}"
+    <form action="{{ route('admin.posts.store') }}"
           method="post"
           enctype="multipart/form-data"
           autocomplete="off">

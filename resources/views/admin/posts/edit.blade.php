@@ -2,7 +2,7 @@
 @section('title','Изменить запись')
 @section('content')
 <div class="mt-3">
-    <form action="{{route('admin.about.update', $about->id)}}"
+    <form action="{{route('admin.posts.update', $post->id)}}"
           method="post"
           enctype="multipart/form-data"
           autocomplete="off">
@@ -18,7 +18,7 @@
                    name="title"
                    class="form-control"
                    id="title"
-                   value="{{ $about->title }}">
+                   value="{{ $post->title }}">
         </div>
         <div class="form-group">
             <label for="short_description">Краткое описание</label>
@@ -26,7 +26,7 @@
                    name="short_description"
                    class="form-control"
                    id="short_description"
-                   value="{{ $about->short_description }}">
+                   value="{{ $post->short_description }}">
         </div>
                 <div class="form-group">
             <label for="image">Выбрать изображение</label>
@@ -34,14 +34,14 @@
                    name="image"
                    id="image"
                    class="form-control-file"
-                   value="{{ $about->image }}">
+                   value="{{ $post->image }}">
         </div>
                 <div class="form-group">
                 <textarea name="body"
-                id="body">{{ $about->body }}
+                id="body">{{ $post->body }}
                 </textarea>
         </div>
-        <a class="btn btn-danger " href="{{ route('admin.about.index')  }}">Назад </a>
+        <a class="btn btn-danger " href="{{ route('admin.posts.index')  }}">Назад </a>
         <button class="btn btn-primary" type="submit">Изменить</button>
     </form>
 </div>

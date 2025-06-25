@@ -55,14 +55,14 @@ class FrontendMainController extends Controller
         ]);
     }
     public function index2()
-    {   $about = Page::all();
+    {   $about = Page::get()->first();
 
         return view('frontend.about.index',[
             'about'=>$about
         ]);
     }
-        public function show2($id=4)
-    {   $about = Page::findOrFail($id=4);
+        public function show2()
+    {   $about = Page::get()->first();
            if (! $about) {
             abort(404);
         }

@@ -7,15 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="h-full">
-    <!--
-  This example requires updating your template:
-
-  ```
-  <html class="h-full bg-gray-100">
-  <body class="h-full">
-  ```
--->
-
 <div class="min-h-full">
     <nav class="bg-gray-800">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -84,9 +75,9 @@
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 
           <a href="/" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Главная</a>
-          <a href="{{ route('frontend.about.show') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">О Нас</a>
+          <a href="{{ route('frontend.about.show') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">О Нас</a>
           <a href="{{ route('frontend.contacts.index') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Контакты</a>
-          <a href="{{ route('frontend.index') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Новости</a>
+          <a href="{{ route('frontend.index') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Навигации</a>
           <a href="{{ route('showLoginForm') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Вход</a>
 
         </div>
@@ -122,22 +113,7 @@
       </div>
     </main>
   </div>
-
-    {{-- <nav>
-        <x-nav-link href="/">Home</x-nav-link>
-        <x-nav-link href="/about" style="color: green">About</x-nav-link>
-        <x-nav-link href="/contact" style="color: red">Contact</x-nav-link>
-        <x-nav-link href="/history" style="color: black">History</x-nav-link>
-        <x-nav-link href="/world" style="color: brown">World</x-nav-link>
-
-        {{-- <a href="/about">About</a>
-        <a href="/contact">Contact</a> --}}
-        {{-- <a href="/history">History</a>
-        <a href="/world">World</a> --}}
-
-    {{-- </nav> --}}
-    {{-- <?php echo $slot?> одно и тоже --}}
-    {{-- {{ $slot }} --}}
-        @stack('script')
+         {{ $headerSlot ?? '' }}
 </body>
+
 </html>

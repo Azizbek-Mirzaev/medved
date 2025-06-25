@@ -1,30 +1,32 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
-use App\Models\Page;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class AboutController extends Controller
+class PostController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-    //     dd('1123');
-         $about = Page::orderBy('id','desc')->get();
+         $post = Post::get();
 
-        return view('admin.about.index',[
-            'about'=>$about
+        // dd($article);
+        return view('admin.posts.index',[
+            'post'=> $post
         ]);
     }
-       public function create()
+    public function create()
     {
     //     dd('1123');
-         $about = Page::get();
+         $post = Post::get();
 
-        return view('admin.about.create',[
-            'about'=>$about
+        return view('admin.posts.create',[
+            'post'=>$post
         ]);
     }
 
@@ -42,43 +44,43 @@ class AboutController extends Controller
         // dd($file);
         $image_path = $file->store('abouts',['disk'=>'public']);
         // dd($image_path);
-        $about = new Page();
+        $post = new Post();
 
-        $about->title = $request->title;
+        $post->title = $request->title;
 
-        $about->short_description = $request->short_description;
+        $post->short_description = $request->short_description;
 
-        $about->body= $request->body;
+        $post->body= $request->body;
 
-        $about->image = $image_path;
+        $post->image = $image_path;
         // $about->user_id = auth()->id();//Тут выборка от Автаризованных берет Айдишку
 
 
-        $about->save();
+        $post->save();
         // dd($article);
 
-        return redirect()->route('admin.about.index');
+        return redirect()->route('admin.posts.index');
     }
 
     public function show($id)
     {
-        $about = Page::find($id);
+        $post = Post::find($id);
         // dd($article);
-        return view('admin.about.show',[
-            'about'=> $about
+        return view('admin.posts.show',[
+            'post'=> $post
         ]);
     }
 
     public function edit($id)
     {
-        $about = Page::findOrFail($id);
+        $post = Post::findOrFail($id);
 
-        if (! $about) {
+        if (! $post) {
             abort(404);
         }
 
-        return view('admin.about.edit', [
-            'about' => $about
+        return view('admin.posts.edit', [
+            'post' => $post
         ]);
     }
         public function update(Request $request, $id) {
@@ -89,43 +91,43 @@ class AboutController extends Controller
             'image'=> 'required|file|mimes:jpg,jpeg,gif,png|max:100' . (5*1024),
             // 'documents'=> 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx,xls,xlsx|max:5120'
         ]);
-            $about = Page::findOrFail($id);
+            $post = Post::findOrFail($id);
             //  dd($about->image);
-            $about->title = $request->title;
+            $post->title = $request->title;
 
-            $about->short_description = $request->input('short_description');
+            $post->short_description = $request->input('short_description');
 
             if ($request->hasFile('image'))
             {
             // Если нужно удалить старое изображение, например:
-            if ($about->image && Storage::disk('public')->exists($about->image)) {
+            if ($post->image && Storage::disk('public')->exists($post->image)) {
 
-                Storage::disk('public')->delete($about->image);
+                Storage::disk('public')->delete($post->image);
             }
              // Сохраняем новое изображение
 
             $path = $request->file('image')->store('abouts',['disk'=>'public']);
 
-            $about->image = $path;
+            $post->image = $path;
 
-            $about->body = $request->body;
+            $post->body = $request->body;
             // Если вы хотите убрать "public/" из пути, чтобы сохранить только относительный путь
 
             // $about->image = str_replace('public/', 'storage/', $path);
             }
 
-            $about->save();
+            $post->save();
 
-            return redirect()->route('admin.about.index')->with('success', 'Новость обновлена');
+            return redirect()->route('admin.posts.index')->with('success', 'Новость обновлена');
             }
             public function delete($id)
         {
-            $about = Page::find($id);
+            $post = Post::find($id);
 
-            if (! $about) {
+            if (! $post) {
                 abort(404);
             }
-            $about->delete();
+            $post->delete();
 
             return redirect()->back();
         }

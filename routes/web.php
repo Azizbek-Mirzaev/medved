@@ -3,12 +3,15 @@
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Contact\ContactController;
 use App\Http\Controllers\Frontend\FrontendMainController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -161,7 +164,32 @@ Route::get('admin/about/show/{id}',[AboutController::class, 'show'])
 Route::get('admin/about/delete/{id}',[AboutController::class, 'delete'])
 ->name('admin.about.delete')->middleware('auth');
 
-////////////////////////////////////////////////////
+Route::post('admin/upload-photo',[UploadController::class, 'upload'])
+->name('admin.upload_photo')->middleware('auth');
+
+////////////////////////////////////////////////////////////////////////
+Route::get('admin/posts',[PostController::class, 'index'])
+->name('admin.posts.index')->middleware('auth');
+
+Route::get('admin/posts/create',[PostController::class, 'create'])
+->name('admin.posts.create')->middleware('auth');
+
+Route::post('admin/posts/store',[PostController::class, 'store'])
+->name('admin.posts.store')->middleware('auth');
+
+Route::get('admin/posts/edit/{id}',[PostController::class, 'edit'])
+->name('admin.posts.edit')->middleware('auth');
+
+Route::post('admin/posts/update/{id}',[PostController::class, 'update'])
+->name('admin.posts.update')->middleware('auth');
+
+Route::get('admin/posts/show/{id}',[PostController::class, 'show'])
+->name('admin.posts.show')->middleware('auth');
+
+Route::get('admin/posts/delete/{id}',[PostController::class, 'delete'])
+->name('admin.posts.delete')->middleware('auth');
+
+////////////////////////////////////////////////////////////////////////
 Route::get('/news',[FrontendMainController::class, 'index'])
 ->name('frontend.index');
 
@@ -174,8 +202,8 @@ Route::get('/cotact',[FrontendMainController::class, 'index1'])
 Route::get('frontend/contacts/show/{id}',[FrontendMainController::class, 'show1'])
 ->name('frontend.contacts.show');
 
-// Route::get('frontend/about',[FrontendMainController::class, 'index'])
-// ->name('frontend.about.index');
+Route::get('frontend/about',[FrontendMainController::class, 'index2'])
+->name('frontend.about.index');
 
-Route::get('frontend/about/show/4',[FrontendMainController::class, 'show2'])
+Route::get('frontend/about/show',[FrontendMainController::class, 'show2'])
 ->name('frontend.about.show');

@@ -50,10 +50,10 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#"  class="nav-link">
+                <a href="{{route('admin.posts.index')}}"  class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
-                    Услуги и товары
+                    Новый Пост
                   </p>
                 </a>
               </li>
