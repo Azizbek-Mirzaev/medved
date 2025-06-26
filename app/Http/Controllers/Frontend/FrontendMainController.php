@@ -56,14 +56,14 @@ class FrontendMainController extends Controller
         ]);
     }
     public function index2()
-    {   $about = Post::get()->first();
+    {   $about = Page::get()->first();
 
         return view('frontend.about.index',[
             'about'=>$about
         ]);
     }
         public function show2()
-    {   $about = Post::get()->first();
+    {   $about = Page::get()->first();
            if (! $about) {
             abort(404);
         }
@@ -73,14 +73,14 @@ class FrontendMainController extends Controller
     }
 
         public function index3()
-    {   $post = Page::get()->first();
+    {   $post = Post::get()->first();
 
         return view('frontend.post.index',[
             'post'=>$post
         ]);
     }
         public function show3()
-    {   $post = Page::get()->first();
+    {   $post = Post::get()->first();
            if (! $post) {
             abort(404);
         }
