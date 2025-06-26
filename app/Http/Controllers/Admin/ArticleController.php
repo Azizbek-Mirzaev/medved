@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -88,10 +89,44 @@ class ArticleController extends Controller
         ]);
     }
         public function update(Request $request, $id) {
-            $article = Article::findOrFail($id);
+            $request->validate([
+            'title'=>'required|string|max:100',
+            'short_description'=>'required|string|max:400',
+            'category_id'=>'required|integer|max_digits:11',
+            'published_at'=>'required|date',
+            'is_actual'=> 'nullable|string',
+            'edition_choice'=> 'nullable|string',
+            'is_carousel'=> 'nullable|string',
+            'status'=> 'nullable|string',
+            'body'=> 'required|string',
+            'image'=> 'required|file|mimes:jpg,jpeg,gif,png|max:100' . (5*1024)
+            // 'documents'=> 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx,xls,xlsx|max:5120'
+            ]);
 
+            $article = Article::findOrFail($id);
+            //  dd($about->image);
             $article->title = $request->title;
-             $article->short_description = $request->input('short_description');
+
+            $article->short_description = $request->input('short_description');
+
+            if ($request->hasFile('image'))
+            {
+            // Если нужно удалить старое изображение, например:
+            if ($article->image && Storage::disk('public')->exists($article->image)) {
+
+                Storage::disk('public')->delete($article->image);
+            }
+             // Сохраняем новое изображение
+
+            $path = $request->file('image')->store('abouts',['disk'=>'public']);
+
+            $article->image = $path;
+
+            $article->body = $request->body; }
+
+            // $article = Article::findOrFail($id);
+            // $article->title = $request->title;
+            // $article->short_description = $request->input('short_description');
             $article->save();
 
             return redirect()->route('admin.article.index')->with('success', 'Новость обновлена');
@@ -107,5 +142,6 @@ class ArticleController extends Controller
 
             return redirect()->back();
         }
+
 
 }

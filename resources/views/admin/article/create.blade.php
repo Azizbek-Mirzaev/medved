@@ -102,14 +102,16 @@
 @endsection
 @push('script')
 <script src="/assets/ckeditor5/ckeditor.js"></script>
+<script src="/assets/ckeditor5/uploader.js"></script>
 <script>
     ClassicEditor
-        .create( document.querySelector( '#body' ) )
+        .create( document.querySelector( '#body' ), {
+            extraPlugins: [loadUploadAdapter]
+        } )
         .catch( error => {
             console.error( error );
         } );
 </script>
-
 
 
 @endpush
