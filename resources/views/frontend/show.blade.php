@@ -16,7 +16,7 @@
         Категория: {{ $article->category->title }}<hr>
     </div> <br>
     <div>
-        <a class="btn btn-danger" href="{{ route('frontend.index') }}"style="color: red" >Назад</a><hr>
+        <a class="btn btn-danger" href="{{ route('frontend.post.index') }}"style="color: red" >Назад</a><hr>
     </div><br>
 </x-layout>
 

@@ -207,3 +207,13 @@ Route::get('frontend/about',[FrontendMainController::class, 'index2'])
 
 Route::get('frontend/about/show',[FrontendMainController::class, 'show2'])
 ->name('frontend.about.show');
+
+Route::get('frontend/post',[FrontendMainController::class, 'index2'])
+->name('frontend.post.index');
+
+Route::get('frontend/post/show',[FrontendMainController::class, 'show2'])
+->name('frontend.post.show');
+
+
+
+

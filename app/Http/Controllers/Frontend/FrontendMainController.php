@@ -70,4 +70,21 @@ class FrontendMainController extends Controller
             'about'=>$about
         ]);
     }
+
+        public function index3()
+    {   $post = Page::get()->first();
+
+        return view('frontend.post.index',[
+            'post'=>$post
+        ]);
+    }
+        public function show3()
+    {   $post = Page::get()->first();
+           if (! $post) {
+            abort(404);
+        }
+        return view('frontend.post.show',[
+            'post'=>$post
+        ]);
+    }
 }
