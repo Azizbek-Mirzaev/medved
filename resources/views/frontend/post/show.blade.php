@@ -28,7 +28,7 @@
     </div>
 
     <div>
-        <a class="btn btn-danger" href="{{ route('frontend.posts.index') }}"style="color: red">Назад</a>
+        <a class="btn btn-danger" href="{{ route('frontend.post.index') }}"style="color: red">Назад</a>
     </div><br>
 
 

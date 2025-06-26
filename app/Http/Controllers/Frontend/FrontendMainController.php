@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Contact;
 use App\Models\Page;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class FrontendMainController extends Controller
@@ -55,14 +56,14 @@ class FrontendMainController extends Controller
         ]);
     }
     public function index2()
-    {   $about = Page::get()->first();
+    {   $about = Post::get()->first();
 
         return view('frontend.about.index',[
             'about'=>$about
         ]);
     }
         public function show2()
-    {   $about = Page::get()->first();
+    {   $about = Post::get()->first();
            if (! $about) {
             abort(404);
         }
