@@ -37,8 +37,7 @@
             <input type="file"
                    name="image"
                    id="image"
-                   class="form-control-file"
-                   >
+                   class="form-control-file">
         </div>
         <div class="form-group">
             <label for="category_id">Категория</label>

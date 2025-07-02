@@ -41,6 +41,8 @@
                 id="body">{{ $about->body }}
                 </textarea>
         </div>
+
+
         <a class="btn btn-danger " href="{{ route('admin.about.index')  }}">Назад </a>
         <button class="btn btn-primary" type="submit">Изменить</button>
     </form>

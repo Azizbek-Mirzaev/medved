@@ -79,13 +79,16 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = Article::findOrFail($id);
+        $categories = Category::all(); // Добавляем категории
+
 
         if (! $article) {
             abort(404);
         }
 
         return view('admin.article.edit', [
-            'article' => $article
+            'article' => $article,
+            'categories' => $categories
         ]);
     }
         public function update(Request $request, $id) {
