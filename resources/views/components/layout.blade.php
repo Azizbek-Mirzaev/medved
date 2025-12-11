@@ -13,7 +13,7 @@
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
             <div class="shrink-0">
-              <img class="size-8" src="https://laracasts.com/images/logo/logo-triangle.svg" alt="Your Company">
+              <img class="size-10 rounded-full"src="{{ asset('images/planet.svg') }}" alt="Логотип" />
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
@@ -45,7 +45,7 @@
                   <button type="button" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                     <span class="absolute -inset-1.5"></span>
                     <span class="sr-only">Open user menu</span>
-                    <img class="size-8 rounded-full" src="https://laracasts.com/images/lary-ai-face.svg" alt="">
+                    <img class="size-8 rounded-full" src="{{ asset('images/planet.svg') }}" alt="Логотип"/>
                   </button>
                 </div>
               </div>

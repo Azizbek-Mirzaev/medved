@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\AniController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\UploadController;
@@ -213,6 +214,9 @@ Route::get('frontend/post',[FrontendMainController::class, 'index3'])
 
 Route::get('frontend/post/show',[FrontendMainController::class, 'show3'])
 ->name('frontend.post.show');
+
+Route::get('admin/anisa/index',[AniController::class, 'index'])
+->name('admin.annisa.index')->middleware('auth');
 
 
 
